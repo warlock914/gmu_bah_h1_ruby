@@ -1,21 +1,26 @@
-# Return a reversed copy of the array
-def reverse(an_array)
-  # write your code here
+#Return a reversed copy of the array
+def reverse (an_array)
+  an_array.reverse
 end
 
 # Return a map of letters and counts of letters
 # Letters should be lowercase before counting
-# For example, histogram('Hello') returns {'h'=>1,'e'=>1,'l'=>2,'o'=>1}
+# For example, historam ('Hello') returns {'h'=>1,'e'=>1,'l'=>2,'o'=>1}
 def histogram(a_string)
-  # write your code here
+  puts a_string
+  text = a_string.downcase
+  options = Hash.new(0)
+  text.each_char {|text| options[text] += 1}
+  options
 end
 
 # Sum all the numbers in the array
-# an_array can contain lots of different things
-# Be sure to only sum the numbers
-# (Hint: the is_a? method might be useful here)
+# an array can contain lots of different things
+# Be sure to only sum the numbers# (Hint: the is_a? method might be useful here)
 def sum_only_numbers(an_array)
-  # write your code here
+  sum = 0
+  an_array.each {|value| sum += value if value.is_a? Numeric}
+  sum
 end
 
 # For i from 1 to 100, return an array.
@@ -26,11 +31,23 @@ end
 # Otherwise, the element is simply the value of i
 # For example [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', ..., 14, 'FizzBuzz', ...]
 def fizzbuzz
-  # write your code here
+  drink = Array.new(100)
+  for i in 1..100
+    if i % 15 == 0
+      drink[i] = 'FizzBuzz'
+    elsif i % 3 == 0
+      drink[i] = 'Fizz'
+    elsif i % 5 == 0
+      drink[i] = 'Buzz'
+    else
+      drink[i] = i
+    end
+  end
+  drink
 end
 
 # Uncomment each of these to test your functions
-# puts reverse([3,6,'dog']).inspect
-# puts histogram('The Quick brown fox').inspect
-# puts sum_only_numbers [4, 'foo', [ ], 27, :rain, 3.14]
-# puts fizzbuzz.join("\n")
+puts reverse([3,6,'dog']).inspect
+puts histogram('The Quick brown fox').inspect
+puts sum_only_numbers [4, 'foo', [ ], 27, :rain, 3.14]
+puts fizzbuzz.join("\n")
